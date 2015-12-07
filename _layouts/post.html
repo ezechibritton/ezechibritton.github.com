@@ -1,15 +1,76 @@
 ---
 layout: default
 ---
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
+<h1>{{ page.title }}</h1>
+<p class="post-meta">
+{{ page.date | date_to_string }} {{ page.location }}
+{% for tag in page.tags %}
+<a href="/tags/#{{ tag | replace:' ','%20' }}"><span class="badge">{{ tag }}</span></a>
+{% endfor %}
+</p>
+<div style="display:inline-block;vertical-align:top">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ezechibritton" data-related="ezechibritton" data-count="none">Tweet</a>
 </div>
+<div style="display:inline-block;vertical-align:top">
+    <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <a href="https://news.ycombinator.com/submit" class="hn-button" data-count="horizontal">Vote on Hacker News</a>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+</div>
+{{ content }}
+<div style="display:inline-block;vertical-align:top">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ezechibritton" data-related="ezechibritton" data-count="none">Tweet</a>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <a data-pocket-label="pocket" data-pocket-count="none" class="pocket-btn" data-lang="en"></a>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <a href="https://news.ycombinator.com/submit" class="hn-button" data-count="horizontal">Vote on Hacker News</a>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+</div>
+<div id="disqus_thread"></div>
+<!--twitter-->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--pocket-->
+<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+<!--hn-->
+<script type="text/javascript">var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>
+<!--g+-->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'en-GB'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!--disqus-->
+<script>
+	/**
+	* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+	*/
+	var disqus_config = function () {
+		this.page.url = '{{ site.url }}{{ page.url | uri_escape }}'; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = '{{ page.path | split:'/' | last | cgi_escape }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	
+	//var disqus_developer = 1; // Comment out when the site is live
+	
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//ezechibrittongithubcom.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
