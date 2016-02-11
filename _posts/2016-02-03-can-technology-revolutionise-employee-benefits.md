@@ -3,7 +3,10 @@ layout: post
 title: Can Technology Revolutionise Employee Benefits?
 location: London
 tags:
-- fintech,hr,payroll,innovation
+- fintech
+- hr
+- payroll
+- innovation
 ---
 Imagine HR departments presiding over walls of personnel files, payroll offices issuing cash in envelopes while typewriters clattered and physical in-trays grew heavy with memos.
 
