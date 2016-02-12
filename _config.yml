@@ -12,7 +12,7 @@ gems:
 
 future:      true
 lsi:         false
-highlighter: pygments
+highlighter: rouge
 markdown:    kramdown
 permalink:   pretty
 
